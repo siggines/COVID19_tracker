@@ -1,6 +1,6 @@
 #!/bin/sh
 
-python -q ./bot.py > ./headline & curl https://corona-stats.online/gb > ./stats &&
+python -q ./bot.py > ./headline & curl -silent https://corona-stats.online/gb > ./stats &&
 	printf "\n\n\n"
 	grep "UK\|World" ./stats | sed "s/\s*//g ; s/║//g ; s/│/;/g" |
 		awk -F';' '{print $2 "   " $8" 😷" "   " $5" 💀" "   "$7" 👌" }'
