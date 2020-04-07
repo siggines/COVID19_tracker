@@ -11,9 +11,9 @@ class Cidrap():
 
     def grab(self):
         self.driver.get('http://www.cidrap.umn.edu/')
-        title = self.driver.find_element_by_xpath('//*[@id="node-183041"]/div/div/div[2]/div/h3/a').get_attribute('innerHTML')
+        title = self.driver.find_element_by_xpath('//*[@id="node-183161"]/div/div/div[2]/div/h3').get_attribute('textContent')
         print(title)
-        paragraph = self.driver.find_element_by_xpath('//*[@id="node-183041"]/div/div/div[2]/div/div[2]/div/div/p').get_attribute('innerHTML')
+        paragraph = self.driver.find_element_by_xpath('//*[@id="node-183161"]/div/div/div[2]/div/div[2]/div/div').get_attribute('textContent')
         print(paragraph)
 
 bot = Cidrap()
