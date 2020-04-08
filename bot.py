@@ -11,10 +11,10 @@ class Cidrap():
 
     def grab(self):
         self.driver.get('http://www.cidrap.umn.edu/')
-        title = self.driver.find_element_by_xpath('//*[@id="node-183161"]/div/div/div[2]/div/h3').get_attribute('textContent')
-        print(title)
-        paragraph = self.driver.find_element_by_xpath('//*[@id="node-183161"]/div/div/div[2]/div/div[2]/div/div').get_attribute('textContent')
-        print(paragraph)
+        title = self.driver.find_element_by_xpath('//*[@id="block-views-nodequeue-7-block"]/div/div/div/div[1]').get_attribute('textContent')
+        print(title.strip())
+        #paragraph = self.driver.find_element_by_xpath('//*[@id="node-183161"]/div/div/div[2]/div/div[2]/div/div').get_attribute('textContent')
+        #print(paragraph)
 
 bot = Cidrap()
 bot.grab()
