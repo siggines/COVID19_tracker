@@ -6,5 +6,6 @@ python -q ./bot.py > ./headline & curl -silent https://corona-stats.online/gb > 
 		awk -F';' '{print $2 "   " $8" 😷" "   " $5" 💀" "   "$7" 👌" }'
 
 	printf "\nFetching CIDRAP (Center for Infectious Disease Research and Policy) news report...\n\n"
-wait && cat ./headline
+wait && sed "s/2020/&\n/g" ./headline | cat
+#wait && cat ./headline
 printf "\n"
