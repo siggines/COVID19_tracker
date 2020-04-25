@@ -1,11 +1,13 @@
 #!/bin/sh
 
 python -q ./bot.py > ./headline & curl -silent https://corona-stats.online/gb > ./stats &&
-	printf "\n\n\n"
+	printf "\n"
 	grep "UK\|World" ./stats | sed "s/\s*//g ; s/║//g ; s/│/;/g" |
 		awk -F';' '{print $2 "   " $8" 😷" "   " $5" 💀" "   "$7" 👌" }'
 
-	printf "\nFetching CIDRAP (Center for Infectious Disease Research and Policy) news report...\n\n"
-wait && sed "s/2020/&\n/g" ./headline | cat
-#wait && cat ./headline
+	#printf "\nFetching CIDRAP (Center for Infectious Disease Research and Policy) news report...\n\n"
+printf "\n"
+wait && sed -i "s/2020/&\n/g" ./headline
+wait && sed "/2020/d" ./headline
+
 printf "\n"
